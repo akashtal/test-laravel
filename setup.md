@@ -1,63 +1,38 @@
-# Quick Setup Guide
+Key features
 
-## Step 1: Database Setup
-1. Start XAMPP
-2. Open phpMyAdmin (http://localhost/phpmyadmin)
-3. Create a new database named `employee_management`
+Admin: manage employees, products, view all customers & purchases.
 
-## Step 2: Environment Configuration
-1. Copy `.env.example` to `.env`
-2. Update the following in `.env`:
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=employee_management
-DB_USERNAME=root
-DB_PASSWORD=
-```
+Employee: manage own customers, create purchases.
 
-## Step 3: Install and Setup
-```bash
-# Install dependencies
+Phone-based auth, secure password hashing, RBAC middleware, full CRUD.
+
+Quick setup
+
+Prereqs: PHP ≥8.2, Composer, MySQL, XAMPP (local).
+Commands:
+
+git clone <repo>
+cd employee-management-system
 composer install
-
-# Generate application key
+cp .env.example .env        # update DB_ settings
 php artisan key:generate
-
-# Run migrations
 php artisan migrate
-
-# Start the server
 php artisan serve
-```
 
-## Step 4: Access the Application
-- Open http://localhost:8000
-- **First**: Register an account at `/register` (automatically becomes Admin)
-- **Then**: Login with your registered credentials
+DB (core tables)
 
-## Getting Started
-1. **Register**: Go to `/register` and create an account (automatically becomes Admin)
-2. **Login**: Use your credentials to login
-3. **Create Employees**: Admin can then create employee accounts
-4. **Employee Login**: Employees can login and manage customers
+user_master (admins/employees)
 
-## System Flow
-1. **User registers** account (automatically becomes Admin)
-2. **Admin logs in** and creates employees
-3. **Employees log in** and create customers
-4. **Employees create purchases** for their customers
-5. **Admin can view** all data across the system
+customer_master (customers, linked to employee)
 
-## Features Implemented
-✅ Admin registration and login
-✅ Employee management by admin
-✅ Employee login
-✅ Customer management by employees
-✅ Product management by admin
-✅ Purchase management by employees
-✅ Role-based access control
-✅ Responsive design with CSS
-✅ MySQL database integration
-✅ Complete CRUD operations
+product_master
+
+purchase_master (links customers & products)
+
+Usage (brief)
+
+Register first account → Admin.
+
+Admin creates employees & products.
+
+Employees login to manage their customers and purchases. Admin can view everything.
