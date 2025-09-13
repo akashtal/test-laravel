@@ -8,10 +8,12 @@ Phone-based auth, secure password hashing, RBAC middleware, full CRUD.
 
 Quick setup
 
+create db name = employee_management
+
 Prereqs: PHP ≥8.2, Composer, MySQL, XAMPP (local).
 Commands:
 
-git clone <repo>
+git clone repo
 cd employee-management-system
 composer install
 cp .env.example .env        # update DB_ settings
