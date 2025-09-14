@@ -22,3 +22,6 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+/%USERPROFILE%
+/node_modules
+/public/build
